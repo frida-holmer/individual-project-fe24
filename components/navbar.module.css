@@ -1,0 +1,8 @@
+.nav {
+    width: 100%;
+    max-width: 1200px;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
