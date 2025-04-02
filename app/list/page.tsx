@@ -1,7 +1,6 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./list.module.css";
 
-export default function Home() {
+export default function ListPage() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
