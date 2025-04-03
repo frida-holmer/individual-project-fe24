@@ -21,7 +21,7 @@ export async function fetchSingleGame(slug: string) {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
         const data = await res.json();
-        return data.results;
+        return data;
     } catch (err) {
         console.error("Error fetching game:", err)
         return null;

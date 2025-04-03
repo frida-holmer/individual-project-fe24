@@ -10,9 +10,22 @@
   }
   
   .main {
+    width: 1200px;
     display: flex;
     flex-direction: column;
     gap: 32px;
     grid-row-start: 2;
   }
   
+  .detailsWrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    .about {
+      grid-column: span 7;
+    }
+
+    .moreDetails {
+      grid-column: 9 / span 4;
+    }
+  }
