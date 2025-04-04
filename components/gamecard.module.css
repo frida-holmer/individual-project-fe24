@@ -1,0 +1,20 @@
+.card {
+    width: 300px;
+    border-radius: 0.8em;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+
+    img {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+        border-radius: 0.8em;
+    }
+
+    h2 {
+        margin-top: auto;
+        padding: 0.8em 1.2em;
+        grid-column: 1;
+        grid-row: 3;
+        font-size: 1rem;
+    }
+}
