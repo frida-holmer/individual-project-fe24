@@ -2,7 +2,7 @@ import { fetchSingleGame } from "@/actions/fetch-games";
 import Image from "next/image";
 import styles from "./game.module.css";
 
-export default async function GamePage({params}: { params: Promise<{ slug: string }> }) {
+export default async function GamePage({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug;
   const game = await fetchSingleGame(slug);
 
