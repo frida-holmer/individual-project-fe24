@@ -10,9 +10,11 @@ export default async function CategoryPage() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        {allGames.map((game, i) => (
-          <GameCard key={i} game={game} />
-        ))}
+        <div className={styles.resultWrapper}>
+          {allGames.map((game, i) => (
+            <GameCard key={i} game={game} />
+          ))}
+        </div>
       </main>
       <footer className={styles.footer}>
         
