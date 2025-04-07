@@ -10,7 +10,9 @@ export default function Navbar() {
 
     const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
-            router.push(`?search=${searchQuery}`);
+            e.preventDefault();
+            router.push(`/search?query=${searchQuery}`);
+            setSearchQuery("");
         }
     }
 
