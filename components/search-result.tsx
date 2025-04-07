@@ -1,6 +1,7 @@
 import { Game } from "@/interfaces/game";
 import { useEffect, useState } from "react";
 import GameCard from "./game-card";
+import styles from "./searchresult.module.css";
 
 interface SearchResultProps {
     query: string | null;
@@ -35,15 +36,17 @@ export default function SearchResult({ query }: SearchResultProps) {
     if (loading) return <p>Searching games...</p>
 
     return (
-        <section>
+        <section className={styles.section}>
             <h1>Search result for "{query}"</h1>
-            {games.length > 0 ? (
-                games.map((game, i) => (
-                    <GameCard key={i} game={game} />
-                ))
-            ) : (
-                <p>No games found for "{query}"</p>
-            )}
+            <div className={styles.searchWrapper}>
+                {games.length > 0 ? (
+                    games.map((game, i) => (
+                        <GameCard key={i} game={game} />
+                    ))
+                ) : (
+                    <p>No games found for "{query}"</p>
+                )}
+            </div>
         </section>
     );
 }
