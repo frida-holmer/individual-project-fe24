@@ -41,7 +41,7 @@ export default function Navbar() {
                     </button>
                 )}
             </div>
-            <Link href="/list">My list</Link>
+            <Link href="/my-game-list">My list</Link>
         </nav>
     );
 }
