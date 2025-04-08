@@ -1,4 +1,5 @@
 import { fetchSingleGame } from "@/actions/fetch-games";
+import AddToListButton from "@/components/add-to-list-button";
 import Image from "next/image";
 import styles from "./game.module.css";
 
@@ -9,7 +10,11 @@ export default async function GamePage({ params }: { params: Promise<{ slug: str
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1>{game.name}</h1>
+        <div className={styles.header}>
+          <h1>{game.name}</h1>
+          <AddToListButton game={game} />
+        </div>
+
         <Image
           src={game.background_image}
           alt={game.name}

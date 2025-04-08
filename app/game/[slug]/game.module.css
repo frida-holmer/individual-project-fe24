@@ -17,6 +17,17 @@
   grid-row-start: 2;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    padding: 0.5em 3em;
+    border: none;
+    border-radius: 0.5em;
+  }
+}
+
 .detailsWrapper {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
