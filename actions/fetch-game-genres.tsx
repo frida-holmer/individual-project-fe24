@@ -4,7 +4,7 @@ import { Genre, GenreDetails } from "@/interfaces/genre";
 // Fetch list of game genres from API
 export async function fetchGenres(): Promise<Genre[]> {
     try {
-        // const res = await fetch(`https://api.rawg.io/api/genres?key=${process.env.API_KEY}`);
+        // const res = await fetch(`https://api.rawg.io/api/genres?key=${process.env.NEXT_PUBLIC_API_KEY}`);
         if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
@@ -19,7 +19,7 @@ export async function fetchGenres(): Promise<Genre[]> {
 // Fetch games by genre from API
 export async function fetchGamesByGenre(slug: string): Promise<Game[]> {
     try {
-        // const res = await fetch(`https://api.rawg.io/api/games?genres=${slug}&key=${process.env.API_KEY}`);
+        // const res = await fetch(`https://api.rawg.io/api/games?genres=${slug}&key=${process.env.NEXT_PUBLIC_API_KEY}`);
         if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
@@ -34,7 +34,7 @@ export async function fetchGamesByGenre(slug: string): Promise<Game[]> {
 // Fetch game genre details from API
 export async function fetchGenreDetails(slug: string): Promise<GenreDetails> {
     try {
-        // const res = await fetch(`https://api.rawg.io/api/genres/${slug}?key=${process.env.API_KEY}`);
+        // const res = await fetch(`https://api.rawg.io/api/genres/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`);
         if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }

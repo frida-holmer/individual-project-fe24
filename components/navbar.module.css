@@ -5,4 +5,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2em;
+
+    .searchContainer{
+        margin-left: auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        border: 1px solid;
+        border-radius: 0.3em;
+
+        input {
+            width: 50vw;
+            padding: 0.5em 1em;
+            border: none;
+            font-size: 1rem;
+        }
+
+        button {
+            position: absolute;
+            right: 0.1em;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+    }
 }
