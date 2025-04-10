@@ -1,15 +1,24 @@
 import { fetchGamesByGenre, fetchGenreDetails } from "@/actions/fetch-game-genres";
 import Image from "next/image";
+import Link from "next/link";
 import GameCard from "@/components/game-card";
 import styles from "./genre.module.css";
 
-export default async function GenrePage({ params }: { params: Promise<{ slug: string }> }) {
-    const slug = (await params).slug;
+interface GenrePageProps {
+  params: { slug: string };
+  searchParams?: { page?: string };
+}
 
-    const [genre, games] = await Promise.all([
+export default async function GenrePage({ params, searchParams }: GenrePageProps ) {
+    const slug = (await params).slug;
+    const page = parseInt(searchParams?.page || "1", 10);
+
+    const [genre, gamesData] = await Promise.all([
         fetchGenreDetails(slug),
-        fetchGamesByGenre(slug),
+        fetchGamesByGenre(slug, page),
       ]);
+
+    const { results: games, next, previous } = gamesData;
   
     return (
       <div className={styles.page}>
@@ -29,6 +38,19 @@ export default async function GenrePage({ params }: { params: Promise<{ slug: st
                 <GameCard key={i} game={game} />
             ))}
           </section>
+
+          <div>
+            {previous && (
+              <Link href={`/genre/${slug}?page=${page - 1}`}>
+                Previous
+              </Link>
+            )}
+            {next && (
+              <Link href={`/genre/${slug}?page=${page + 1}`}>
+                Next
+              </Link>
+            )}
+          </div>
         </main>
         <footer className={styles.footer}>
           

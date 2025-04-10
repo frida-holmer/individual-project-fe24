@@ -17,17 +17,25 @@ export async function fetchGenres(): Promise<Genre[]> {
 }
 
 // Fetch games by genre from API
-export async function fetchGamesByGenre(slug: string): Promise<Game[]> {
+export async function fetchGamesByGenre(slug: string, page: number = 1, pageSize: number = 20): Promise<{ results: Game[]; next: string | null; previous: string | null }> {
     try {
-        // const res = await fetch(`https://api.rawg.io/api/games?genres=${slug}&key=${process.env.NEXT_PUBLIC_API_KEY}`);
+        // const res = await fetch(`https://api.rawg.io/api/games?genres=${slug}&page=${page}&page_size=${pageSize}&key=${process.env.NEXT_PUBLIC_API_KEY}`);
         if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
         const data = await res.json();
-        return data.results;
+        return {
+            results: data.results,
+            next: data.next,
+            previous: data.previous
+        };
     } catch (err) {
         console.error("Error fetching games by genre:", err)
-        return [];
+        return {
+            results: [],
+            next: null,
+            previous: null
+        };
     }
 }
 
