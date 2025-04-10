@@ -1,0 +1,30 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.pageButton {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #FFF;
+}
+
+.prev {
+    margin-right: 3em;
+}
+
+.next {
+    margin-left: 3em;
+}
+
+.pageNumber {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #FFF;
+}
+
+.active {
+    font-weight: 600;
+}

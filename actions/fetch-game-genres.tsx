@@ -17,7 +17,7 @@ export async function fetchGenres(): Promise<Genre[]> {
 }
 
 // Fetch games by genre from API
-export async function fetchGamesByGenre(slug: string, page: number = 1, pageSize: number = 20): Promise<{ results: Game[]; next: string | null; previous: string | null }> {
+export async function fetchGamesByGenre(slug: string, page: number = 1, pageSize: number = 20): Promise<{ results: Game[]; next: string | null; previous: string | null; count: number }> {
     try {
         // const res = await fetch(`https://api.rawg.io/api/games?genres=${slug}&page=${page}&page_size=${pageSize}&key=${process.env.NEXT_PUBLIC_API_KEY}`);
         if (!res.ok) {
@@ -27,14 +27,16 @@ export async function fetchGamesByGenre(slug: string, page: number = 1, pageSize
         return {
             results: data.results,
             next: data.next,
-            previous: data.previous
+            previous: data.previous,
+            count: data.count
         };
     } catch (err) {
         console.error("Error fetching games by genre:", err)
         return {
             results: [],
             next: null,
-            previous: null
+            previous: null,
+            count: 0
         };
     }
 }

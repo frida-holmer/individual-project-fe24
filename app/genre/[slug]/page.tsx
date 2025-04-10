@@ -1,7 +1,7 @@
 import { fetchGamesByGenre, fetchGenreDetails } from "@/actions/fetch-game-genres";
 import Image from "next/image";
-import Link from "next/link";
 import GameCard from "@/components/game-card";
+import Pagination from "@/components/pagination";
 import styles from "./genre.module.css";
 
 interface GenrePageProps {
@@ -12,13 +12,15 @@ interface GenrePageProps {
 export default async function GenrePage({ params, searchParams }: GenrePageProps ) {
     const slug = (await params).slug;
     const page = parseInt(searchParams?.page || "1", 10);
+    const pageSize = 20;
 
     const [genre, gamesData] = await Promise.all([
         fetchGenreDetails(slug),
-        fetchGamesByGenre(slug, page),
+        fetchGamesByGenre(slug, page, pageSize),
       ]);
 
-    const { results: games, next, previous } = gamesData;
+    const { results: games, next, previous, count } = gamesData;
+    const totalPages = Math.ceil(count / pageSize);
   
     return (
       <div className={styles.page}>
@@ -38,19 +40,7 @@ export default async function GenrePage({ params, searchParams }: GenrePageProps
                 <GameCard key={i} game={game} />
             ))}
           </section>
-
-          <div>
-            {previous && (
-              <Link href={`/genre/${slug}?page=${page - 1}`}>
-                Previous
-              </Link>
-            )}
-            {next && (
-              <Link href={`/genre/${slug}?page=${page + 1}`}>
-                Next
-              </Link>
-            )}
-          </div>
+          <Pagination currentPage={page} totalPages={totalPages} basePath={`/genre/${slug}`} />
         </main>
         <footer className={styles.footer}>
           
