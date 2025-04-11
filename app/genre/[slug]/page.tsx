@@ -5,13 +5,13 @@ import Pagination from "@/components/pagination";
 import styles from "./genre.module.css";
 
 interface GenrePageProps {
-  params: { slug: string };
-  searchParams?: { page?: string };
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ page?: string }>;
 }
 
 export default async function GenrePage({ params, searchParams }: GenrePageProps ) {
     const slug = (await params).slug;
-    const page = parseInt(searchParams?.page || "1", 10);
+    const page = parseInt((await searchParams).page || "1", 10);
     const pageSize = 20;
 
     const [genre, gamesData] = await Promise.all([
