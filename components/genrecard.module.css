@@ -1,0 +1,20 @@
+.cardGenre {
+    width: 169px;
+    border-radius: 0.8em;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+
+    img {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+        border-radius: 0.8em;
+    }
+
+    h2 {
+        margin: auto;
+        grid-column: 1;
+        grid-row: 2;
+        font-size: 1rem;
+        text-align: center;
+    }
+}
