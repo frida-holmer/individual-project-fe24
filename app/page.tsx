@@ -1,5 +1,6 @@
 import { fetchGenres } from "@/actions/fetch-game-genres";
 import { Genre } from "@/interfaces/genre";
+import CarouselHero from "@/components/carousel-hero";
 import GenreCard from "@/components/genre-card";
 import styles from "./page.module.css";
 
@@ -9,6 +10,7 @@ export default async function Home() {
 
   return (
     <div className={styles.page}>
+      <CarouselHero />
       <main className={styles.main}>
         <div className={styles.genreWrapper}>
           {genres.map((genre, i) => (

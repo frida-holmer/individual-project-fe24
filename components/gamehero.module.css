@@ -1,0 +1,21 @@
+.hero {
+    width: 100%;
+    max-height: 80vh;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+
+    img {
+        width: 100%;
+        height: auto;
+        grid-column: 1;
+        grid-row: 1 / span 3;
+    }
+
+    h2 {
+        margin-top: auto;
+        padding: 0 1.2em 0.8em;
+        grid-column: 1;
+        grid-row: 3;
+        font-size: clamp(1rem, 5vw, 2rem);
+    }
+}
