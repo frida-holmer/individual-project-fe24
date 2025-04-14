@@ -1,0 +1,18 @@
+.embla {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.emblaViewport {
+    overflow: hidden;
+}
+
+.emblaContainer {
+    display: flex;
+}
+
+.emblaSlide {
+    transform: translate3d(0, 0, 0);
+    flex: 0 0 15%;
+    min-width: 0;
+}

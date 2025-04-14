@@ -12,12 +12,6 @@
   grid-row-start: 2;
 }
 
-.genreWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-}
-
 .footer {
   grid-row-start: 3;
   display: flex;
