@@ -8,7 +8,16 @@ import styles from "./carouselgenres.module.css";
 
 export default function CarouselGenres() {
     const [gameGenres, setGameGenres] = useState<Genre[]>([]);
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start", slidesToScroll: 5 });
+
+    const [canScrollPrev, setCanScrollPrev] = useState(false);
+    const [canScrollNext, setCanScrollNext] = useState(false);
+
+    const disableScrollButtons = useCallback(() => {
+        if (!emblaApi) return;
+        setCanScrollPrev(emblaApi.canScrollPrev());
+        setCanScrollNext(emblaApi.canScrollNext());
+    }, [emblaApi]);
 
     useEffect(() => {
         const getGameGenres = async () => {
@@ -17,6 +26,19 @@ export default function CarouselGenres() {
         }
         getGameGenres();
     }, []);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+
+        disableScrollButtons();
+        emblaApi.on('select', disableScrollButtons);
+        emblaApi.on('reInit', disableScrollButtons);
+
+        return () => {
+            emblaApi.off('select', disableScrollButtons);
+            emblaApi.off('reInit', disableScrollButtons);
+        };
+    }, [emblaApi, disableScrollButtons]);
 
     const scrollPrev = useCallback(() => {
         if (emblaApi) emblaApi.scrollPrev()
@@ -38,10 +60,10 @@ export default function CarouselGenres() {
                 </div>
             </div>
 
-            <button className={styles.emblaPrev} onClick={scrollPrev}>
+            <button className={styles.emblaPrev} onClick={scrollPrev} disabled={!canScrollPrev}>
                 Prev
             </button>
-            <button className={styles.emblaNext} onClick={scrollNext}>
+            <button className={styles.emblaNext} onClick={scrollNext} disabled={!canScrollNext}>
                 Next
             </button>
         </div>
