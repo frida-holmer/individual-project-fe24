@@ -1,6 +1,6 @@
 import { fetchSingleGame } from "@/actions/fetch-games";
 import AddToListButton from "@/components/add-to-list-button";
-import Image from "next/image";
+import ScreenshotsGallery from "@/components/screenshots-gallery";
 import styles from "./game.module.css";
 
 export default async function GamePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -15,17 +15,12 @@ export default async function GamePage({ params }: { params: Promise<{ slug: str
           <AddToListButton game={game} />
         </div>
 
-        <Image
-          src={game.background_image}
-          alt={game.name}
-          width={1200}
-          height={675}
-        />
+        <ScreenshotsGallery screenshots={game.screenshots || []} gameName={game.name} />
 
         <div className={styles.detailsWrapper}>
           <div className={styles.about}>
             <h2>About</h2>
-            <p>{game.description}</p>
+            <p dangerouslySetInnerHTML={{ __html: game.description }} />
           </div>
           <div className={styles.moreDetails}>
             <p>Rating: {game.rating}</p>
