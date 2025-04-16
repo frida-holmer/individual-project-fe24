@@ -14,3 +14,33 @@
     flex: 0 0 100%;
     min-width: 0;
 }
+
+.mainImage {
+    width: 100%;
+    height: auto;
+    border-radius: 0.8em;
+}
+
+/* Thumbnails */
+.thumbViewport {
+    margin-top: 1em;
+    overflow: hidden;
+}
+
+.thumbContainer {
+    display: flex;
+    gap: 0.8em;
+}
+
+.thumbSlide {
+    flex: 0 0 22%;
+    min-width: 0;
+    border: none;
+    background: transparent;
+}
+
+.thumbImage {
+    width: 100%;
+    height: auto;
+    border-radius: 0.8em;
+}

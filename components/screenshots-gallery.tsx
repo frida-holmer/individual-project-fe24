@@ -6,24 +6,30 @@ import useEmblaCarousel from "embla-carousel-react";
 import styles from "./screenshotsgallery.module.css";
 
 export default function ScreenshotsGallery({ screenshots, gameName }: { screenshots: Screenshot[]; gameName: string; }) {
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
+    const [emblaMainRef, emblaMainApi] = useEmblaCarousel({ loop: false });
+    const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({ containScroll: "keepSnaps", dragFree: true });
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const scrollTo = useCallback(
-        (index: number) => emblaApi?.scrollTo(index),
-        [emblaApi]
+        (index: number) => {
+            if (!emblaMainApi || !emblaThumbsApi) return;
+            emblaMainApi.scrollTo(index)
+        },
+        [emblaMainApi, emblaThumbsApi]
     );
 
     const onSelect = useCallback(() => {
-        if (!emblaApi) return;
-        setSelectedIndex(emblaApi.selectedScrollSnap());
-    }, [emblaApi]);
+        if (!emblaMainApi || !emblaThumbsApi) return;
+        const index = emblaMainApi.selectedScrollSnap();
+        setSelectedIndex(index);
+        emblaThumbsApi.scrollTo(index);
+    }, [emblaMainApi, emblaThumbsApi]);
 
     useEffect(() => {
-        if (!emblaApi) return;
-        emblaApi.on("select", onSelect);
+        if (!emblaMainApi) return;
+        emblaMainApi.on("select", onSelect);
         onSelect();
-    }, [emblaApi, onSelect]);
+    }, [emblaMainApi, onSelect]);
 
     if (!screenshots || screenshots.length === 0) {
         return <p>No screenshots available.</p>;
@@ -31,7 +37,7 @@ export default function ScreenshotsGallery({ screenshots, gameName }: { screensh
 
     return (
         <div className={styles.embla}>
-            <div className={styles.emblaViewport} ref={emblaRef}>
+            <div className={styles.emblaViewport} ref={emblaMainRef}>
                 <div className={styles.emblaContainer}>
                     {screenshots.map((screenshot) => (
                         <div key={screenshot.id} className={styles.emblaSlide}>
@@ -47,18 +53,20 @@ export default function ScreenshotsGallery({ screenshots, gameName }: { screensh
                 </div>
             </div>
 
-            <div className={styles.thumbs}>
-                {screenshots.map((screenshot, i) => (
-                    <button key={screenshot.id} onClick={() => scrollTo(i)} className={`${styles.thumb} ${i === selectedIndex ? styles.selected : ""}`} >
-                        <Image
-                            src={screenshot.image}
-                            alt={`Thumbnail ${i + 1}`}
-                            width={120}
-                            height={67}
-                            className={styles.thumbImage}
-                        />
-                    </button>
-                ))}
+            <div className={styles.thumbViewport} ref={emblaThumbsRef}>
+                <div className={styles.thumbContainer}>
+                    {screenshots.map((screenshot, i) => (
+                        <button key={screenshot.id} onClick={() => scrollTo(i)} className={`${styles.thumbSlide} ${i === selectedIndex ? styles.selected : ""}`}>
+                            <Image
+                                src={screenshot.image}
+                                alt={`Thumbnail ${i + 1}`}
+                                width={264}
+                                height={148}
+                                className={styles.thumbImage}
+                            />
+                        </button>
+                    ))}
+                </div>
             </div>
         </div>
     );
