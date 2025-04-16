@@ -16,24 +16,29 @@ export default async function Home() {
     <div className={styles.page}>
       <CarouselHero />
       <CarouselGenres />
+
       <main className={styles.main}>
-        <div className={styles.pc}>
+        <div className={styles.category}>
           <h2>Top Rated Games on PC</h2>
           <CarouselSmall games={pcGames} />
         </div>
-        <div className={styles.ps}>
+
+        <div className={styles.category}>
           <h2>Top Rated Games on PlayStation 5</h2>
           <CarouselSmall games={psGames} />
         </div>
-        <div className={styles.xbox}>
+
+        <div className={styles.category}>
           <h2>Top Rated Games on Xbox One</h2>
           <CarouselSmall games={xboxGames} />
         </div>
-        <div className={styles.nintendo}>
+        
+        <div className={styles.category}>
           <h2>Top Rated Games on Nintendo Switch</h2>
           <CarouselSmall games={nintendoGames} />
         </div>
       </main>
+
       <footer className={styles.footer}>
         
       </footer>

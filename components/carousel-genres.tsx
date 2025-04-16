@@ -4,11 +4,12 @@ import { Genre } from '@/interfaces/genre';
 import GenreCard from './genre-card';
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import Image from "next/image";
 import styles from "./carouselgenres.module.css";
 
 export default function CarouselGenres() {
     const [gameGenres, setGameGenres] = useState<Genre[]>([]);
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start", slidesToScroll: 5 });
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start", slidesToScroll: 6 });
 
     const [canScrollPrev, setCanScrollPrev] = useState(false);
     const [canScrollNext, setCanScrollNext] = useState(false);
@@ -50,6 +51,10 @@ export default function CarouselGenres() {
 
     return (
         <div className={styles.embla}>
+            <button className={styles.emblaPrev} onClick={scrollPrev} disabled={!canScrollPrev}>
+                <Image src="arrow.svg" alt="Prev" height={24} width={24} />
+            </button>
+
             <div className={styles.emblaViewport} ref={emblaRef}>
                 <div className={styles.emblaContainer}>
                     {gameGenres.map((genre, i) => (
@@ -60,11 +65,8 @@ export default function CarouselGenres() {
                 </div>
             </div>
 
-            <button className={styles.emblaPrev} onClick={scrollPrev} disabled={!canScrollPrev}>
-                Prev
-            </button>
             <button className={styles.emblaNext} onClick={scrollNext} disabled={!canScrollNext}>
-                Next
+                <Image src="arrow.svg" alt="Next" height={24} width={24} />
             </button>
         </div>
     )

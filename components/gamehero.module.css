@@ -11,11 +11,18 @@
         grid-row: 1 / span 3;
     }
 
+    .overlay {
+        grid-column: 1;
+        grid-row: 2 / span 2;
+        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    }
+
     h2 {
         margin-top: auto;
         padding: 0 1.2em 0.8em;
         grid-column: 1;
         grid-row: 3;
-        font-size: clamp(1rem, 5vw, 2rem);
+        font-size: clamp(1rem, 5vw, 1.5rem);
+        font-weight: 400;
     }
 }

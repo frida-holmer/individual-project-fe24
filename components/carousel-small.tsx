@@ -3,6 +3,7 @@ import { Game } from '@/interfaces/game';
 import GameCard from './game-card';
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import Image from "next/image";
 import styles from "./carouselsmall.module.css";
 
 interface GameProps {
@@ -10,7 +11,7 @@ interface GameProps {
 }
 
 export default function CarouselSmall({ games }: GameProps) {
-    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start", slidesToScroll: 4 });
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start", slidesToScroll: 3 });
 
     const [canScrollPrev, setCanScrollPrev] = useState(false);
     const [canScrollNext, setCanScrollNext] = useState(false);
@@ -44,6 +45,10 @@ export default function CarouselSmall({ games }: GameProps) {
 
     return (
         <div className={styles.embla}>
+            <button className={styles.emblaPrev} onClick={scrollPrev} disabled={!canScrollPrev}>
+                <Image src="arrow.svg" alt="Prev" height={24} width={24} />
+            </button>
+
             <div className={styles.emblaViewport} ref={emblaRef}>
                 <div className={styles.emblaContainer}>
                     {games.map((game, i) => (
@@ -54,11 +59,8 @@ export default function CarouselSmall({ games }: GameProps) {
                 </div>
             </div>
 
-            <button className={styles.emblaPrev} onClick={scrollPrev} disabled={!canScrollPrev}>
-                Prev
-            </button>
             <button className={styles.emblaNext} onClick={scrollNext} disabled={!canScrollNext}>
-                Next
+                <Image src="arrow.svg" alt="Next" height={24} width={24} />
             </button>
         </div>
     )

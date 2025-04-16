@@ -17,7 +17,8 @@ export default function GameCard({ game }: gameCardProps) {
                     width={300}
                     height={169}
                 />
-                <h2>{game.name}</h2>
+                <div className={styles.overlay}></div>
+                <h3>{game.name}</h3>
             </article>
         </Link>
     );
