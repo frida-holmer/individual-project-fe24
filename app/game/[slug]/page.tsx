@@ -10,10 +10,10 @@ export default async function GamePage({ params }: { params: Promise<{ slug: str
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <div className={styles.header}>
+        <header className={styles.header}>
           <h1>{game.name}</h1>
           <AddToListButton game={game} />
-        </div>
+        </header>
 
         <ScreenshotsGallery screenshots={game.screenshots || []} gameName={game.name} />
 
