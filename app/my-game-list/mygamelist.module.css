@@ -32,12 +32,13 @@
 
   h2 {
     margin-top: 0.5em;
+    font-weight: 400;
   }
 
   button {
     margin-left: auto;
     margin-top: auto;
-    padding: 1em 3em;
+    padding: 0.8em 3em;
     border: none;
     border-radius: 0.5em;
     cursor: pointer;

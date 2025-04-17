@@ -20,11 +20,11 @@ export default async function GenrePage({ params }: { params: Promise<{ slug: st
             width={1200}
             height={675}
           />
+          <div className={styles.overlay}></div>
+          <h1>{genre.name}</h1>
         </header>
 
         <main className={styles.main}>
-          <h1>{genre.name}</h1>
-
           <div className={styles.about}>
             <h2>About</h2>
             <p dangerouslySetInnerHTML={{ __html: genre.description }} />

@@ -12,4 +12,9 @@
 .main {
     width: 1200px;
     margin: 5em 0;
+
+    h1 {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
 }
