@@ -1,5 +1,5 @@
 .card {
-    max-width: 300px;
+    max-width: 292px;
     border-radius: 0.8em;
     display: grid;
     grid-template-rows: repeat(3, 1fr);

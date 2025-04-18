@@ -11,7 +11,8 @@
 
 .main {
   margin: 5em 0;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   gap: 2em;
