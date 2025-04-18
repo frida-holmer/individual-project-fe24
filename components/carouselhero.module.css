@@ -40,6 +40,10 @@
             margin: auto;
             transform: rotate(180deg);
         }
+
+        &:hover {
+            background-color: rgba(237, 237, 237, 0.2);
+        }
     
         &:disabled {
             background-color: rgba(0, 0, 0, 0.2);
@@ -62,6 +66,10 @@
         img {
             display: block;
             margin: auto;
+        }
+
+        &:hover {
+            background-color: rgba(237, 237, 237, 0.2);
         }
     
         &:disabled {

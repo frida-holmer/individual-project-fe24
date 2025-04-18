@@ -3,7 +3,7 @@ import { Game, Screenshot } from "@/interfaces/game";
 // Fetch all games from API
 export async function fetchAllGames(): Promise<Game[]> {
     try {
-        // const res = await fetch(`https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_API_KEY}`);
+        const res = await fetch(`https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_API_KEY}`);
         if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
@@ -19,8 +19,8 @@ export async function fetchAllGames(): Promise<Game[]> {
 export async function fetchSingleGame(slug: string): Promise<Game> {
     try {
         const [res, screenshotsRes] = await Promise.all ([
-            // fetch(`https://api.rawg.io/api/games/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`),
-            // fetch(`https://api.rawg.io/api/games/${slug}/screenshots?key=${process.env.NEXT_PUBLIC_API_KEY}`),
+            fetch(`https://api.rawg.io/api/games/${slug}?key=${process.env.NEXT_PUBLIC_API_KEY}`),
+            fetch(`https://api.rawg.io/api/games/${slug}/screenshots?key=${process.env.NEXT_PUBLIC_API_KEY}`),
         ]);
 
         if (!res.ok || !screenshotsRes.ok) {
