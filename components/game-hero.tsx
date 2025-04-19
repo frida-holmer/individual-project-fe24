@@ -17,6 +17,7 @@ export default function GameHero({ game }: gameHeroProps) {
                     width={1920}
                     height={1080}
                 />
+                <div className={styles.overlay}></div>
                 <h2>{game.name}</h2>
             </article>
         </Link>

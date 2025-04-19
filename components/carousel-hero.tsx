@@ -4,6 +4,7 @@ import { Game } from '@/interfaces/game';
 import GameHero from './game-hero';
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import Image from "next/image";
 import styles from "./carouselhero.module.css";
 
 export default function CarouselHero() {
@@ -38,12 +39,14 @@ export default function CarouselHero() {
                 </div>
             </div>
 
-            <button className={styles.emblaPrev} onClick={scrollPrev}>
-                Prev
-            </button>
-            <button className={styles.emblaNext} onClick={scrollNext}>
-                Next
-            </button>
+            <div className={styles.buttons}>
+                <button className={styles.emblaPrev} onClick={scrollPrev}>
+                    <Image src="arrow.svg" alt="Prev" height={24} width={24} />
+                </button>
+                <button className={styles.emblaNext} onClick={scrollNext}>
+                    <Image src="arrow.svg" alt="Next" height={24} width={24} />
+                </button>
+            </div>
         </div>
     )
 }

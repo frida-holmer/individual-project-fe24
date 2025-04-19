@@ -14,10 +14,11 @@ export default function GameCard({ game }: gameCardProps) {
                 <Image
                     src={game.background_image}
                     alt={game.name}
-                    width={300}
-                    height={169}
+                    width={292}
+                    height={163}
                 />
-                <h2>{game.name}</h2>
+                <div className={styles.overlay}></div>
+                <h3>{game.name}</h3>
             </article>
         </Link>
     );

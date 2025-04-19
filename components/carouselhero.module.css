@@ -1,9 +1,14 @@
 .embla {
     width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 0.5em;
 }
 
 .emblaViewport {
     overflow: hidden;
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .emblaContainer {
@@ -13,4 +18,68 @@
 .emblaSlide {
     flex: 0 0 100%;
     min-width: 0;
+}
+
+.buttons {
+    margin: auto 1.2em;
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    justify-content: space-between;
+
+    .emblaPrev {
+        width: 38px;
+        height: 38px;
+        aspect-ratio: 1 / 1;
+        background-color: rgba(0, 0, 0, 1);
+        border: 1px solid rgba(237, 237, 237, 0.2);
+        border-radius: 50%;
+    
+        img {
+            display: block;
+            margin: auto;
+            transform: rotate(180deg);
+        }
+
+        &:hover {
+            background-color: rgba(237, 237, 237, 0.2);
+        }
+    
+        &:disabled {
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(237, 237, 237, 0.05);
+    
+            img {
+                opacity: 20%;
+            }
+        }
+    }
+    
+    .emblaNext {
+        width: 38px;
+        height: 38px;
+        aspect-ratio: 1 / 1;
+        background-color: rgba(0, 0, 0, 1);
+        border: 1px solid rgba(237, 237, 237, 0.2);
+        border-radius: 50%;
+    
+        img {
+            display: block;
+            margin: auto;
+        }
+
+        &:hover {
+            background-color: rgba(237, 237, 237, 0.2);
+        }
+    
+        &:disabled {
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(237, 237, 237, 0.05);
+    
+            img {
+                opacity: 20%;
+            }
+        }
+    }
+    
 }

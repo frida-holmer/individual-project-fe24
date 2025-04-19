@@ -26,7 +26,9 @@ export default function Navbar() {
 
     return (
         <nav className={styles.nav}>
-            <Link href="/">LOGO</Link>
+            <div className={styles.logo}>
+                <Link href="/">GameLoot</Link>
+            </div>
             <div className={styles.searchContainer}>
                 <input
                     type="text"
