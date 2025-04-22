@@ -9,7 +9,7 @@ export interface Game {
     playtime: number;
     platforms: Platform[];
     tags: Tag[];
-    short_screenshots: Screenshot[];
+    screenshots: Screenshot[];
 }
 
 interface Platform {
@@ -20,6 +20,7 @@ interface Tag {
     name: string;
 }
 
-interface Screenshot {
+export interface Screenshot {
+    id: number;
     image: string;
 }

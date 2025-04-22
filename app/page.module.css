@@ -1,26 +1,36 @@
 .page {
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
+  width: 100vw;
   min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8em;
   font-family: var(--font-geist-sans);
 }
 
 .main {
-  width: 1200px;
+  margin: 5em 0;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
   grid-row-start: 2;
-}
 
-.genreWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
+  .category {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+
+    h2 {
+      margin-left: 2.4em;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+  }
 }
 
 .footer {

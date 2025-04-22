@@ -5,18 +5,32 @@ import styles from "./searchresult.module.css";
 
 interface SearchResultProps {
     query: string | null;
+    genre: string | null;
 }
 
-export default function SearchResult({ query }: SearchResultProps) {
+export default function SearchResult({ query, genre }: SearchResultProps) {
     const [games, setGames] = useState<Game[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!query) return;
-        
         const fetchSearch = async () => {
             try {
-                // const res = await fetch(`https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_API_KEY}&search=${query}`);
+                if (!query && !genre) {
+                    setGames([]);
+                    return;
+                }
+
+                let url = `https://api.rawg.io/api/games?key=${process.env.NEXT_PUBLIC_API_KEY}`;
+
+                if (query) {
+                    url += `&search=${query}`;
+                }
+
+                if (genre) {
+                    url += `&genres=${genre}`;
+                }
+
+                const res = await fetch(url);
                 if (!res.ok) {
                     throw new Error(`HTTP error! Status: ${res.status}`);
                 }
@@ -31,7 +45,7 @@ export default function SearchResult({ query }: SearchResultProps) {
         };
         fetchSearch();
 
-    }, [query])
+    }, [query, genre]);
 
     if (loading) return <p>Searching games...</p>
 

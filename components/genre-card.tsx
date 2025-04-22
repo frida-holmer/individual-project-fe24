@@ -17,7 +17,8 @@ export default function GenreCard({ genre }: genreCardProps) {
                     width={169}
                     height={169}
                 />
-                <h2>{genre.name}</h2>
+                <div className={styles.overlay}></div>
+                <h3>{genre.name}</h3>
             </article>
         </Link>
     );
