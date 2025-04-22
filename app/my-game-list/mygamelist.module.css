@@ -20,39 +20,57 @@
   h1 {
     margin-bottom: 0.5em;
   }
+
+  .list {
+    padding: 0.4em 0.6em;
+    background-color: rgba(237, 237, 237, 0.03);
+    border: 1px solid rgba(237, 237, 237, 0.2);
+    border-radius: 0.8em;
+    box-shadow: 0.2em 0.2em 0.8em rgba(0, 0, 0, 0.25);
+    display: flex;
+    gap: 1.5em;
+  
+    img {
+      margin-top: 0.2em;
+      width: 300px;
+      border-radius: 0.8em;
+    }
+  
+    h2 {
+      margin-top: 0.8em;
+      font-weight: 400;
+    }
+  
+    button {
+      margin: auto 0.6em 0.6em auto;
+      padding: 1em 3em;
+      background-color: rgba(0, 0, 0, 1);
+      border: 1px solid rgba(237, 237, 237, 0.2);
+      border-radius: 1.8em;
+      color: rgba(237, 237, 237, 1);
+      cursor: pointer;
+  
+      &:hover {
+        background-color: rgba(237, 237, 237, 0.2);
+      }
+    }
+  }
 }
 
-.list {
-  padding: 0.4em 0.6em;
-  background-color: rgba(237, 237, 237, 0.03);
-  border: 1px solid rgba(237, 237, 237, 0.2);
-  border-radius: 0.8em;
-  box-shadow: 0.2em 0.2em 0.8em rgba(0, 0, 0, 0.25);
-  display: flex;
-  gap: 1.5em;
-
-  img {
-    margin-top: 0.2em;
-    width: 300px;
-    border-radius: 0.8em;
+@media (max-width: 1200px) {
+  .main {
+      h1 {
+        margin: 0 0.5em 0.5em 0.5em;
+      }
   }
 
-  h2 {
-    margin-top: 0.8em;
-    font-weight: 400;
+  .list {
+    margin: 0 1.5em 0 1.5em;
   }
+}
 
-  button {
-    margin: auto 0.6em 0.6em auto;
-    padding: 1em 3em;
-    background-color: rgba(0, 0, 0, 1);
-    border: 1px solid rgba(237, 237, 237, 0.2);
-    border-radius: 1.8em;
-    color: rgba(237, 237, 237, 1);
-    cursor: pointer;
-
-    &:hover {
-      background-color: rgba(237, 237, 237, 0.2);
-    }
+@media (max-width: 800px) {
+  .list {
+    flex-direction: column;
   }
 }
