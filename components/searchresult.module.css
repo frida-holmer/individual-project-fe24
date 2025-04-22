@@ -5,7 +5,13 @@
 }
 
 .searchWrapper {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.5em;
+}
+
+@media (max-width: 1200px) {
+    .searchWrapper {
+        margin: 0 1.5em 0 1.5em;
+    }
 }
