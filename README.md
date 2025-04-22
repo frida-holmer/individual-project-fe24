@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Individual Project FE24
+This portfolio project showcases the skills I have acquired during the Frontend Development course (FE24) at Lexicon.
 
-## Getting Started
+## About the Project
+The application is a game discovery service designed to help users find new games to play based on their preferences.
 
-First, run the development server:
+This is version 1 of the application. Development is ongoing, and I plan to continue adding features, improving performance, and enhancing the overall user experience in future updates.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎮 Features
+* Browse a curated selection of games
+* Search for games by title or keyword
+* Filter games by genre
+* View detailed game information, including screenshots, release date, and rating
+* Save games to a "Want to Play" list for easy access later
+* Responsive and clean user interface built with modern design principles
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📝 To Do
+* Implement user authentication for saving favorites
+* Add filter by platform
+* Add sorting by popularity, name, and release date
+* Improve loading states and error handling
+* Add animations and transitions for smoother UX
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
+* Framework: React/Next.js
+* Language: TypeScript
+* Styling: CSS Modules & [Embla Carousel](https://www.embla-carousel.com/)
+* Routing & Structure: Next.js App Router
+* API: [RAWG Video Games Database](https://rawg.io/apidocs)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design Sketches (Figma)
+Below are some of my initial design sketches created in Figma. They helped me plan the layout, user flow, and overall structure of the application.
 
-## Learn More
+### Home Page
+![Wireframe - Home Page](./public/wireframes/wireframe-home-page.png)
 
-To learn more about Next.js, take a look at the following resources:
+### Search Page
+![Wireframe - Search Page](./public/wireframes/wireframe-search-page.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Game Page
+![Wireframe - Game Page](./public/wireframes/wireframe-game-page.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### List Page
+![Wireframe - List Page](./public/wireframes/wireframe-list-page.png)
 
-## Deploy on Vercel
+## Screenshots
+Below are some screenshots from the current version of the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Home Page
+![Screenshot - Home Page 1](./public/screenshots/screenshot-home-page-1.png)
+![Screenshot - Home Page 2](./public/screenshots/screenshot-home-page-2.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Genre Page
+![Screenshot - Genre Page](./public/screenshots/screenshot-genre-page.png)
+
+### Search Page
+![Screenshot - Search Page](./public/screenshots/screenshot-search-page.png)
+
+### Game Page
+![Screenshot - Game Page 1](./public/screenshots/screenshot-game-page-1.png)
+![Screenshot - Game Page 2](./public/screenshots/screenshot-game-page-2.png)
+
+### List Page
+![Screenshot - List Page](./public/screenshots/screenshot-list-page.png)
