@@ -35,6 +35,12 @@
             grid-column: 1;
             grid-row: 2;
         }
+
+        @media (max-width: 1200px) {
+            h1 {
+                margin: auto auto 0.5em 0.5em;
+            }
+        }
     }
 }
 
@@ -56,11 +62,31 @@
             line-height: 1.8;
         }
     }
+
+    @media (max-width: 1200px) {
+        .about {
+            margin: 0 1.5em 0 1.5em;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .about {
+            p {
+                max-width: 100%;
+            }
+        }
+    }
 }
 
 .genreWrapper {
     margin-top: 2em;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.5em;
+}
+
+@media (max-width: 1200px) {
+    .genreWrapper {
+        margin: 0 1.5em 0 1.5em;
+    }
 }
