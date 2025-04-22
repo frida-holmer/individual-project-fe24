@@ -18,6 +18,7 @@ This is version 1 of the application. Development is ongoing, and I plan to cont
 * Implement user authentication for saving favorites
 * Add filter by platform
 * Add sorting by popularity, name, and release date
+* Improve detailed game information, including add trailer
 * Improve loading states and error handling
 * Add animations and transitions for smoother UX
 
