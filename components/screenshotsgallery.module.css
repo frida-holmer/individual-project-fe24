@@ -1,5 +1,12 @@
 .embla {
+    margin-top: 2em;
     max-width: 1200px;
+}
+
+@media (max-width: 1200px) {
+    .embla {
+        margin: 2em 1.5em 0 1.5em;
+    }
 }
 
 .emblaViewport {
