@@ -1,20 +1,16 @@
 import { fetchAllGames } from "@/actions/fetch-games";
 import { Game } from "@/interfaces/game";
-import GameCard from "@/components/game-card";
+import GameCardContainer from "@/components/game-card-container";
 import styles from "./category.module.css";
 
 export default async function CategoryPage() {
   const data = await fetchAllGames();
-  const allGames: Game[] = data;
+  const games: Game[] = data;
 
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <div className={styles.resultWrapper}>
-          {allGames.map((game, i) => (
-            <GameCard key={i} game={game} />
-          ))}
-        </div>
+        <GameCardContainer games={games} />
       </main>
       <footer className={styles.footer}>
         
