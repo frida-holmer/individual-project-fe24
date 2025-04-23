@@ -27,18 +27,20 @@ export default function MyGameListPage() {
         <h1>My game list</h1>
         {games.length > 0 ? (
           games.map((game) => (
-            <article key={game.id} className={styles.list}>
-              <Link href={"/game/" + game.slug}>
-                <Image
-                  src={game.background_image}
-                  alt={game.name}
-                  width={300}
-                  height={169}
-                />
-              </Link>
-              <Link href={"/game/" + game.slug}>
-                <h2>{game.name}</h2>
-              </Link>
+            <article key={game.id} className={styles.listCard}>
+              <div className={styles.imgContainer}>
+                <Link href={"/game/" + game.slug}>
+                  <Image
+                    src={game.background_image}
+                    alt={game.name}
+                    width={300}
+                    height={169}
+                  />
+                </Link>
+              </div>
+              
+              <h2><Link href={"/game/" + game.slug}>{game.name}</Link></h2>
+              
               <button onClick={() => handleRemove(game.id)}>
                 Remove from list
               </button>
