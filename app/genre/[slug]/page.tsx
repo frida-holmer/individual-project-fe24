@@ -1,6 +1,6 @@
 import { fetchGamesByGenre, fetchGenreDetails } from "@/actions/fetch-game-genres";
 import Image from "next/image";
-import GameCard from "@/components/game-card";
+import GameCardContainer from "@/components/game-card-container";
 import styles from "./genre.module.css";
 
 export default async function GenrePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -30,11 +30,7 @@ export default async function GenrePage({ params }: { params: Promise<{ slug: st
             <p dangerouslySetInnerHTML={{ __html: genre.description }} />
           </div>
 
-          <section className={styles.genreWrapper}>
-            {games.map((game, i) => (
-                <GameCard key={i} game={game} />
-            ))}
-          </section>
+          <GameCardContainer games={games} />
         </main>
         <footer className={styles.footer}>
           

@@ -77,29 +77,3 @@
         }
     }
 }
-
-.genreWrapper {
-    margin-top: 2em;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5em;
-}
-
-@media (max-width: 1200px) {
-    .genreWrapper {
-        margin: 2em 1.5em 0 1.5em;
-    }
-}
-
-@media (max-width: 900px) {
-    .genreWrapper {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.8em;
-    }
-}
-
-@media (max-width: 600px) {
-    .genreWrapper {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
